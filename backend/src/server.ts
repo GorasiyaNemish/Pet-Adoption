@@ -4,6 +4,7 @@ import connectDB from './config/db';
 import env from './config/env';
 
 import authRoutes from './routes/authRoutes';
+import petRoutes from './routes/petRoutes';
 
 // Connect to Database
 connectDB();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/pets', petRoutes);
 
 // Basic Route
 app.get('/', (req: Request, res: Response) => {
