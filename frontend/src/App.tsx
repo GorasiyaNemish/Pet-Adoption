@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import PetsPage from './pages/PetsPage';
 import PetDetailPage from './pages/PetDetailPage';
 import UserDashboard from './pages/UserDashboard';
+import ProfilePage from './pages/ProfilePage';
 import AdminPetsPage from './pages/admin/AdminPetsPage';
 import AdminAdoptionsPage from './pages/admin/AdminAdoptionsPage';
 import useAuth from './hooks/useAuth';
@@ -52,6 +53,7 @@ function App() {
           {/* User Routes */}
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Route>
 
           {/* Admin Routes */}
