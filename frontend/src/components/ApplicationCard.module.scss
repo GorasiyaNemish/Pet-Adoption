@@ -1,0 +1,81 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.cardWrapper {
+  @include flex($justify: flex-start, $gap: $spacing-6);
+  padding: $spacing-6;
+  background-color: $white;
+  border: 1px solid $gray-200;
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-4;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  @include mobile {
+    @include flex($direction: column, $align: stretch, $gap: $spacing-4);
+  }
+}
+
+.petImage {
+  width: 120px;
+  height: 120px;
+  border-radius: $radius-md;
+  object-fit: cover;
+  background-color: $gray-100;
+  
+  @include mobile {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.petPlaceholder {
+  @include flex;
+  width: 120px;
+  height: 120px;
+  border-radius: $radius-md;
+  background-color: $gray-100;
+  font-size: 2.5rem;
+  
+  @include mobile {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.infoSection {
+  flex: 1;
+}
+
+.header {
+  @include flex($justify: space-between, $align: flex-start);
+  margin-bottom: $spacing-3;
+  
+  h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .date {
+    font-size: 0.75rem;
+    color: $gray-500;
+  }
+}
+
+.breed {
+  font-size: 0.8125rem;
+  color: $gray-500;
+  display: block;
+}
+
+.message {
+  font-size: 0.875rem;
+  color: $gray-600;
+  background-color: $gray-50;
+  padding: $spacing-3;
+  border-radius: $radius-md;
+  margin-top: $spacing-4;
+}

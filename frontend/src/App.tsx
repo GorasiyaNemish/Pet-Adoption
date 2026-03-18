@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PetsPage from './pages/PetsPage';
 import PetDetailPage from './pages/PetDetailPage';
+import UserDashboard from './pages/UserDashboard';
 import useAuth from './hooks/useAuth';
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
 
           {/* User Routes */}
           <Route element={<PrivateRoute />}>
-            <Route path="/dashboard" element={<div><h1>User Dashboard - My Applications</h1></div>} />
+            <Route path="/dashboard" element={<UserDashboard />} />
           </Route>
 
           {/* Admin Routes */}
