@@ -156,6 +156,15 @@ See `backend/.env.example` and `frontend/.env.example` for required variables.
 
 ---
 
+## 🔮 Future Improvements
+
+- [ ] **Image Uploads**: Integrate Cloudinary or AWS S3 for direct pet photo uploads instead of URL strings.
+- [ ] **Email Notifications**: Automated emails for application status updates (Approved/Rejected).
+- [ ] **User Reviews**: Allow adopted pet owners to leave stories and reviews.
+- [ ] **Real-time Chat**: Connect potential adopters directly with shelter admins.
+
+---
+
 ## 📄 License
 
 MIT
