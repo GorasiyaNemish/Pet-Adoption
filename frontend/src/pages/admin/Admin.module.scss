@@ -1,0 +1,74 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.header {
+  @include flex($justify: space-between, $align: center, $gap: $spacing-6);
+  margin-bottom: $spacing-8;
+}
+
+.tableWrapper {
+  @include card-base;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  
+  th {
+    padding: $spacing-4 $spacing-6;
+    background-color: $gray-50;
+    color: $gray-500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid $gray-100;
+  }
+  
+  td {
+    padding: $spacing-4 $spacing-6;
+    border-bottom: 1px solid $gray-100;
+    font-size: 0.875rem;
+    color: $gray-800;
+  }
+  
+  tr:last-child td {
+     border-bottom : none;
+  }
+}
+
+.petThumb {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  object-fit: cover;
+  background-color: $gray-100;
+}
+
+.actions {
+  @include flex($justify: flex-end, $gap: $spacing-2);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($gray-900, 0.5);
+  backdrop-filter: blur(4px);
+  @include flex;
+  z-index: 100;
+}
+
+.modal {
+  background-color: $white;
+  padding: $spacing-8;
+  border-radius: $radius-xl;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: $shadow-lg;
+}

@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import PetsPage from './pages/PetsPage';
 import PetDetailPage from './pages/PetDetailPage';
 import UserDashboard from './pages/UserDashboard';
+import AdminPetsPage from './pages/admin/AdminPetsPage';
 import useAuth from './hooks/useAuth';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
           <Route path="/pets" element={<PetsPage />} />
           <Route path="/pets/:id" element={<PetDetailPage />} />
           
-          {/* Auth Routes - redirect if already logged in */}
+          {/* Auth Routes */}
           <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
           <Route path="/register" element={!isAuthenticated ? <RegisterPage /> : <Navigate to="/" replace />} />
 
@@ -44,7 +45,7 @@ function App() {
 
           {/* Admin Routes */}
           <Route element={<AdminRoute />}>
-            <Route path="/admin" element={<div><h1>Admin Dashboard - Manage Pets & Adoptions</h1></div>} />
+            <Route path="/admin" element={<AdminPetsPage />} />
           </Route>
 
           <Route path="*" element={<div><h1>404 Not Found</h1></div>} />

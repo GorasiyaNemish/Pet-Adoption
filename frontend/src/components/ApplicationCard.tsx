@@ -1,6 +1,6 @@
-import React from 'react';
 import type { AdoptionApplication, Pet } from '../types';
-import Badge, { BadgeVariant } from './Badge';
+import Badge from './Badge';
+import type { BadgeVariant } from './Badge';
 import styles from './ApplicationCard.module.scss';
 
 interface ApplicationCardProps {
