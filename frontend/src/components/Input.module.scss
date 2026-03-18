@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.inputGroup {
+  margin-bottom: $spacing-6;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $gray-700;
+  margin-bottom: $spacing-2;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  background-color: $white;
+  border: 1px solid $gray-200;
+  border-radius: $radius-md;
+  font-size: 0.9375rem;
+  color: $gray-900;
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 4px rgba($primary, 0.1);
+  }
+
+  &.error {
+    border-color: $error;
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($error, 0.1);
+    }
+  }
+}
+
+textarea.input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.errorMessage {
+  display: block;
+  font-size: 0.75rem;
+  color: $error;
+  margin-top: $spacing-1;
+  font-weight: 500;
+}

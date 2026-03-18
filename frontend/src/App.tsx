@@ -1,9 +1,14 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
 import { PrivateRoute, AdminRoute } from './components/AuthGuards';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import useAuth from './hooks/useAuth';
 
 function App() {
+  const { isAuthenticated } = useAuth();
+  
   return (
     <>
       <Toaster 
@@ -24,8 +29,10 @@ function App() {
           <Route path="/" element={<div style={{ textAlign: 'center', padding: '100px 0' }}><h1>Welcome to PetAdopt</h1><p>Our premium pet adoption platform is live!</p></div>} />
           <Route path="/pets" element={<div><h1>Browse Pets</h1><p>Listing all pets here...</p></div>} />
           <Route path="/pets/:id" element={<div><h1>Pet Details</h1></div>} />
-          <Route path="/login" element={<div><h1>Login Page</h1></div>} />
-          <Route path="/register" element={<div><h1>Register Page</h1></div>} />
+          
+          {/* Auth Routes - redirect if already logged in */}
+          <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
+          <Route path="/register" element={!isAuthenticated ? <RegisterPage /> : <Navigate to="/" replace />} />
 
           {/* User Routes */}
           <Route element={<PrivateRoute />}>
