@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
 import { PrivateRoute, AdminRoute } from './components/AuthGuards';
@@ -8,7 +8,18 @@ import PetsPage from './pages/PetsPage';
 import PetDetailPage from './pages/PetDetailPage';
 import UserDashboard from './pages/UserDashboard';
 import AdminPetsPage from './pages/admin/AdminPetsPage';
+import AdminAdoptionsPage from './pages/admin/AdminAdoptionsPage';
 import useAuth from './hooks/useAuth';
+
+const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div>
+    <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
+       <NavLink to="/admin/pets" style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal', color: isActive ? '#6366f1' : '#64748b' })}>Manage Pets</NavLink>
+       <NavLink to="/admin/adoptions" style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal', color: isActive ? '#6366f1' : '#64748b' })}>Adoption Requests</NavLink>
+    </div>
+    {children}
+  </div>
+);
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -45,7 +56,9 @@ function App() {
 
           {/* Admin Routes */}
           <Route element={<AdminRoute />}>
-            <Route path="/admin" element={<AdminPetsPage />} />
+            <Route path="/admin" element={<Navigate to="/admin/pets" replace />} />
+            <Route path="/admin/pets" element={<AdminLayout><AdminPetsPage /></AdminLayout>} />
+            <Route path="/admin/adoptions" element={<AdminLayout><AdminAdoptionsPage /></AdminLayout>} />
           </Route>
 
           <Route path="*" element={<div><h1>404 Not Found</h1></div>} />
