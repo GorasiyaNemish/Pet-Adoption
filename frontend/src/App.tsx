@@ -5,6 +5,7 @@ import { PrivateRoute, AdminRoute } from './components/AuthGuards';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PetsPage from './pages/PetsPage';
+import PetDetailPage from './pages/PetDetailPage';
 import useAuth from './hooks/useAuth';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           {/* Public Routes */}
           <Route path="/" element={<div style={{ textAlign: 'center', padding: '100px 0' }}><h1>Welcome to PetAdopt</h1><p>Our premium pet adoption platform is live!</p></div>} />
           <Route path="/pets" element={<PetsPage />} />
-          <Route path="/pets/:id" element={<div><h1>Pet Details</h1></div>} />
+          <Route path="/pets/:id" element={<PetDetailPage />} />
           
           {/* Auth Routes - redirect if already logged in */}
           <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />} />
