@@ -1,5 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import Button from './Button';
 import styles from './Layout.module.scss';
 
 interface LayoutProps {
@@ -7,6 +9,14 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <div className={styles.layout}>
       {/* Navbar section */}
@@ -19,12 +29,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className={styles.navLinks}>
             <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Home</NavLink>
             <NavLink to="/pets" className={({ isActive }) => isActive ? styles.active : ''}>Browse Pets</NavLink>
+            {isAuthenticated && !isAdmin && (
+              <NavLink to="/dashboard" className={({ isActive }) => isActive ? styles.active : ''}>Dashboard</NavLink>
+            )}
+            {isAdmin && (
+              <NavLink to="/admin" className={({ isActive }) => isActive ? styles.active : ''}>Admin Dashboard</NavLink>
+            )}
           </div>
 
           <div className={styles.actions}>
-            {/* These will be conditional based on auth later */}
-            <NavLink to="/login" className={styles.link}>Login</NavLink>
-            <NavLink to="/register" className={styles.link}>Register</NavLink>
+            {!isAuthenticated ? (
+              <>
+                <NavLink to="/login">
+                  <Button variant="secondary" size="sm">Login</Button>
+                </NavLink>
+                <NavLink to="/register">
+                  <Button variant="primary" size="sm">Register</Button>
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <span className={styles.userInfo}>Hello, <strong>{user?.name}</strong></span>
+                <Button variant="danger" size="sm" onClick={handleLogout}>Logout</Button>
+              </>
+            )}
           </div>
         </div>
       </nav>

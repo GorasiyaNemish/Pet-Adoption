@@ -61,6 +61,17 @@
     @include flex;
     gap: $spacing-4;
   }
+
+  .userInfo {
+    font-size: 0.875rem;
+    color: $gray-500;
+    margin-right: $spacing-2;
+
+    strong {
+      color: $gray-900;
+      font-weight: 600;
+    }
+  }
 }
 
 .footer {
