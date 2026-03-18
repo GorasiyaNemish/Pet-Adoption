@@ -1,0 +1,14 @@
+{
+  "name": "pet-adoption",
+  "version": "1.0.0",
+  "description": "Pet Adoption Management System — full-stack MERN application",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": ["pet-adoption", "mern", "typescript", "react", "express", "mongodb"],
+  "author": "",
+  "license": "MIT"
+}
