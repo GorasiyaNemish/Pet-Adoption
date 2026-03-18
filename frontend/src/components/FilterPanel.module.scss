@@ -1,0 +1,77 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.panel {
+  background-color: $white;
+  padding: $spacing-6;
+  border-radius: $radius-lg;
+  border: 1px solid $gray-200;
+  margin-bottom: $spacing-8;
+  @include flex($justify: space-between, $align: flex-end, $gap: $spacing-6);
+
+  @include mobile {
+    @include flex($direction: column, $align: stretch);
+  }
+}
+
+.filterGroup {
+  flex: 1;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $spacing-2;
+  letter-spacing: 0.05em;
+}
+
+.select {
+  width: 100%;
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-md;
+  border: 1px solid $gray-200;
+  background-color: $gray-50;
+  color: $gray-800;
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:focus {
+    border-color: $primary;
+    background-color: $white;
+    box-shadow: 0 0 0 4px rgba($primary, 0.1);
+  }
+}
+
+.searchWrapper {
+  flex: 2;
+  position: relative;
+  
+  input {
+    width: 100%;
+    padding: $spacing-2 $spacing-10;
+    border-radius: $radius-md;
+    border: 1px solid $gray-200;
+    background-color: $gray-50;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.2s ease;
+    
+    &:focus {
+      border-color: $primary;
+      background-color: $white;
+    }
+  }
+  
+  .icon {
+    position: absolute;
+    left: $spacing-3;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $gray-400;
+  }
+}

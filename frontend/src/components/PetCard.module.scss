@@ -1,0 +1,70 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.cardWrapper {
+  height: 100%;
+}
+
+.imageOuter {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: $gray-100;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cardWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  @include flex;
+  height: 100%;
+  font-size: 3rem;
+  background-color: $gray-100;
+  color: $gray-300;
+}
+
+.badge {
+  position: absolute;
+  top: $spacing-3;
+  right: $spacing-3;
+  z-index: 10;
+}
+
+.info {
+  margin-bottom: $spacing-4;
+}
+
+.petName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $gray-900;
+  margin-bottom: $spacing-1;
+}
+
+.breed {
+  font-size: 0.875rem;
+  color: $gray-500;
+  display: block;
+}
+
+.details {
+  @include flex($justify: flex-start, $gap: $spacing-4);
+  font-size: 0.8125rem;
+  color: $gray-600;
+}
+
+.detailItem {
+  @include flex($gap: $spacing-1);
+  background-color: $gray-50;
+  padding: $spacing-1 $spacing-2;
+  border-radius: $radius-sm;
+}

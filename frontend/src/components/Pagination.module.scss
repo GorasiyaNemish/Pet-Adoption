@@ -1,0 +1,37 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.pagination {
+  @include flex($gap: $spacing-2);
+  margin-top: $spacing-12;
+}
+
+.pageBtn {
+  @include flex;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  border: 1px solid $gray-200;
+  background-color: $white;
+  color: $gray-600;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: $primary;
+    color: $primary;
+    background-color: rgba($primary, 0.05);
+  }
+
+  &.active {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
