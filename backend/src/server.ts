@@ -1,11 +1,13 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 import connectDB from './config/db';
 import env from './config/env';
 
 import authRoutes from './routes/authRoutes';
 import petRoutes from './routes/petRoutes';
 import adoptionRoutes from './routes/adoptionRoutes';
+import { notFound, errorHandler } from './middleware/errorMiddleware';
 
 // Connect to Database
 connectDB();
@@ -13,6 +15,9 @@ connectDB();
 const app = express();
 
 // Middleware
+if (env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 app.use(cors());
 app.use(express.json());
 
@@ -25,6 +30,10 @@ app.use('/api/adoptions', adoptionRoutes);
 app.get('/', (req: Request, res: Response) => {
   res.send('Pet Adoption API is running...');
 });
+
+// Error Handling Middleware
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = env.PORT;
 
