@@ -1,0 +1,20 @@
+// Global SCSS entry point
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+// Utility classes
+.container {
+  @include section-container;
+}
+
+.text-primary { color: $primary; }
+.text-secondary { color: $secondary; }
+.text-muted { color: $gray-500; }
+
+.mb-1 { margin-bottom: $spacing-1; }
+.mb-2 { margin-bottom: $spacing-2; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mb-8 { margin-bottom: $spacing-8; }

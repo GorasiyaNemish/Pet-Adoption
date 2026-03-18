@@ -1,0 +1,94 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.layout {
+  @include flex($justify: flex-start, $direction: column);
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  padding: $spacing-8 0;
+  
+  @include mobile {
+    padding: $spacing-4 0;
+  }
+}
+
+.navbar {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $gray-200;
+  padding: $spacing-4 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  
+  .navContainer {
+    @include section-container;
+    @include flex($justify: space-between);
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-family: $font-heading;
+    font-weight: 700;
+    color: $primary;
+    @include flex;
+    gap: $spacing-2;
+  }
+
+  .navLinks {
+    @include flex;
+    gap: $spacing-6;
+    
+    @include mobile {
+      gap: $spacing-3;
+    }
+    
+    a {
+      font-weight: 500;
+      color: $gray-600;
+      font-size: 0.9375rem;
+
+      &:hover { color: $primary; }
+      &.active { color: $primary; font-weight: 600; }
+    }
+  }
+
+  .actions {
+    @include flex;
+    gap: $spacing-4;
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: $spacing-8 0;
+  background-color: $white;
+  border-top: 1px solid $gray-200;
+  margin-top: auto;
+  
+  .footerContainer {
+    @include section-container;
+    @include flex($justify: space-between);
+    
+    @include mobile {
+      @include flex($direction: column, $gap: $spacing-4);
+      text-align: center;
+    }
+    
+    .copyright {
+      font-size: 0.875rem;
+      color: $gray-500;
+    }
+    
+    .footerLinks {
+      @include flex;
+      gap: $spacing-6;
+      font-size: 0.875rem;
+      color: $gray-600;
+    }
+  }
+}

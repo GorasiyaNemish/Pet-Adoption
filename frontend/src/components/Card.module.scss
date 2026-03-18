@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.card {
+  @include card-base;
+  
+  &.noPadding {
+    padding: 0;
+  }
+}
+
+.header {
+  padding: $spacing-4 $spacing-6;
+  border-bottom: 1px solid $gray-100;
+  font-weight: 600;
+  font-family: $font-heading;
+}
+
+.body {
+  padding: $spacing-6;
+}
+
+.footer {
+  padding: $spacing-4 $spacing-6;
+  background-color: $gray-50;
+  border-top: 1px solid $gray-100;
+}

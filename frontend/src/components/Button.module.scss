@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.btn {
+  @include flex;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $radius-md;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  user-select: none;
+  gap: $spacing-2;
+  border: 1px solid transparent;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background-color: $primary;
+    color: $white;
+    &:hover:not(:disabled) {
+      background-color: $primary-dark;
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &.secondary {
+    background-color: $white;
+    color: $gray-700;
+    border: 1px solid $gray-200;
+    &:hover:not(:disabled) {
+      background-color: $gray-50;
+      border-color: $gray-300;
+      box-shadow: $shadow-sm;
+    }
+  }
+
+  &.danger {
+    background-color: $white;
+    color: $error;
+    border: 1px solid $gray-200;
+    &:hover:not(:disabled) {
+      border-color: $error;
+      background-color: rgba($error, 0.05);
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.sm { padding: $spacing-1 $spacing-2; font-size: 0.75rem; }
+  &.lg { padding: $spacing-3 $spacing-6; font-size: 1rem; }
+}
