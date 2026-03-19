@@ -8,9 +8,7 @@ import authRoutes from './routes/authRoutes';
 import petRoutes from './routes/petRoutes';
 import adoptionRoutes from './routes/adoptionRoutes';
 import { notFound, errorHandler } from './middleware/errorMiddleware';
-
-// Connect to Database
-connectDB();
+import { seedAdmin } from './utils/seeder';
 
 const app = express();
 
@@ -35,8 +33,23 @@ app.get('/', (req: Request, res: Response) => {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = env.PORT;
+// Initialize Database & Seeding then start server
+const startApp = async () => {
+  try {
+    // Connect to Database
+    await connectDB();
 
-app.listen(PORT, () => {
-  console.log(`Server running in ${env.NODE_ENV} mode on port ${PORT}`);
-});
+    // Auto-Seed Admin if not exists
+    await seedAdmin();
+
+    const PORT = env.PORT;
+    app.listen(PORT, () => {
+      console.log(`Server running in ${env.NODE_ENV} mode on port ${PORT}`);
+    });
+  } catch (error: any) {
+    console.error(`Application failed to start: ${error.message}`);
+    process.exit(1);
+  }
+};
+
+startApp();
