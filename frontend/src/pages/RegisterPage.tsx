@@ -32,12 +32,12 @@ const RegisterPage: React.FC = () => {
     if (!formData.name.trim()) newErrors.name = 'Full name is required';
     if (!formData.email) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Invalid email format';
-    
+
     if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters long';
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -114,10 +114,10 @@ const RegisterPage: React.FC = () => {
             required
           />
 
-          <Button 
-            variant="primary" 
-            fullWidth 
-            type="submit" 
+          <Button
+            variant="primary"
+            fullWidth
+            type="submit"
             disabled={isLoading}
           >
             {isLoading ? 'Creating Account...' : 'Sign Up'}

@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import '../styles/variables';
+@import '../styles/mixins';
 
 .btn {
   @include flex;
@@ -20,6 +20,7 @@
   &.primary {
     background-color: $primary;
     color: $white;
+
     &:hover:not(:disabled) {
       background-color: $primary-dark;
       box-shadow: $shadow-md;
@@ -30,6 +31,7 @@
     background-color: $white;
     color: $gray-700;
     border: 1px solid $gray-200;
+
     &:hover:not(:disabled) {
       background-color: $gray-50;
       border-color: $gray-300;
@@ -41,6 +43,7 @@
     background-color: $white;
     color: $error;
     border: 1px solid $gray-200;
+
     &:hover:not(:disabled) {
       border-color: $error;
       background-color: rgba($error, 0.05);
@@ -51,6 +54,13 @@
     width: 100%;
   }
 
-  &.sm { padding: $spacing-1 $spacing-2; font-size: 0.75rem; }
-  &.lg { padding: $spacing-3 $spacing-6; font-size: 1rem; }
+  &.sm {
+    padding: $spacing-1 $spacing-2;
+    font-size: 0.75rem;
+  }
+
+  &.lg {
+    padding: $spacing-3 $spacing-6;
+    font-size: 1rem;
+  }
 }

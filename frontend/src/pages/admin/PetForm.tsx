@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Pet } from '../../types';
-import Button from '../Button';
-import Input from '../Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 import styles from '../admin/Admin.module.scss';
 
 interface PetFormProps {
@@ -51,7 +51,7 @@ const PetForm: React.FC<PetFormProps> = ({ initialData, onSubmit, onCancel, isLo
   return (
     <form onSubmit={handleSubmit}>
       <h2 style={{ marginBottom: '1.5rem' }}>{initialData ? 'Edit Pet' : 'Add New Pet'} 🐾</h2>
-      
+
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
         <Input label="Name" name="name" value={formData.name} onChange={handleChange} required />
         <div style={{ marginBottom: '1.5rem' }}>
@@ -71,7 +71,7 @@ const PetForm: React.FC<PetFormProps> = ({ initialData, onSubmit, onCancel, isLo
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-         <div style={{ marginBottom: '1.5rem' }}>
+        <div style={{ marginBottom: '1.5rem' }}>
           <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Gender</label>
           <select name="gender" value={formData.gender} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
             <option value="male">Male</option>
@@ -90,7 +90,7 @@ const PetForm: React.FC<PetFormProps> = ({ initialData, onSubmit, onCancel, isLo
       </div>
 
       <Input label="Photo URL" name="photoUrl" value={formData.photoUrl} onChange={handleChange} placeholder="https://example.com/pet.jpg" />
-      
+
       <Input label="Description" name="description" value={formData.description} onChange={handleChange} isTextArea />
 
       <div className={styles.actions} style={{ marginTop: '1.5rem' }}>

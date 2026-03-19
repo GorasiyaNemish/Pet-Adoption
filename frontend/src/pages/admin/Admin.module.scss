@@ -1,5 +1,5 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .header {
   @include flex($justify: space-between, $align: center, $gap: $spacing-6);
@@ -15,7 +15,7 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  
+
   th {
     padding: $spacing-4 $spacing-6;
     background-color: $gray-50;
@@ -25,16 +25,16 @@
     font-weight: 600;
     border-bottom: 1px solid $gray-100;
   }
-  
+
   td {
     padding: $spacing-4 $spacing-6;
     border-bottom: 1px solid $gray-100;
     font-size: 0.875rem;
     color: $gray-800;
   }
-  
+
   tr:last-child td {
-     border-bottom : none;
+    border-bottom: none;
   }
 }
 

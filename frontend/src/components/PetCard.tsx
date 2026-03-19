@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Pet } from '../types';
 import Card from './Card';
-import Badge, { BadgeVariant } from './Badge';
+import Badge, { type BadgeVariant } from './Badge';
 import Button from './Button';
 import styles from './PetCard.module.scss';
 
@@ -47,7 +47,7 @@ const PetCard: React.FC<PetCardProps> = ({ pet }) => {
             </span>
           </div>
           <div style={{ marginTop: '1.25rem' }}>
-             <Button variant="secondary" size="sm" fullWidth>View Details</Button>
+            <Button variant="secondary" size="sm" fullWidth>View Details</Button>
           </div>
         </div>
       </Card>

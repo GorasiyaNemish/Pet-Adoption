@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import '../styles/variables';
+@import '../styles/mixins';
 
 .spinner {
   width: 40px;
@@ -12,18 +12,23 @@
   animation: rotation 1s linear infinite;
 
   &.sm {
-     width: 20px;
-     height: 20px;
-     border-width: 2px;
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
   }
 
   &.lg {
-     width: 80px;
-     height: 80px;
+    width: 80px;
+    height: 80px;
   }
 }
 
 @keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-} 
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -3,9 +3,9 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { fetchPets, createPet, updatePet, deletePet } from '../../api/petApi';
 import type { Pet } from '../../types';
-import Button from '../Button';
-import Badge from '../Badge';
-import Spinner from '../Spinner';
+import Button from '../../components/Button';
+import Badge from '../../components/Badge';
+import Spinner from '../../components/Spinner';
 import PetForm from './PetForm';
 import styles from './Admin.module.scss';
 
@@ -115,9 +115,9 @@ const AdminPetsPage: React.FC = () => {
                 <td>{pet.breed || '-'}</td>
                 <td>{pet.age} {pet.age === 1 ? 'yr' : 'yrs'}</td>
                 <td>
-                   <Badge variant={pet.status === 'available' ? 'success' : pet.status === 'pending' ? 'warning' : 'info'}>
-                     {pet.status}
-                   </Badge>
+                  <Badge variant={pet.status === 'available' ? 'success' : pet.status === 'pending' ? 'warning' : 'info'}>
+                    {pet.status}
+                  </Badge>
                 </td>
                 <td>
                   <div className={styles.actions}>
@@ -134,9 +134,9 @@ const AdminPetsPage: React.FC = () => {
       {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
-            <PetForm 
-              initialData={editingPet} 
-              onSubmit={handleSubmit} 
+            <PetForm
+              initialData={editingPet}
+              onSubmit={handleSubmit}
               onCancel={closeModal}
               isLoading={createMutation.isPending || updateMutation.isPending}
             />

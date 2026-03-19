@@ -3,9 +3,9 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { fetchAllAdoptions, updateAdoptionStatus } from '../../api/adoptionApi';
 import type { AdoptionApplication, Pet, User } from '../../types';
-import Button from '../Button';
-import Badge from '../Badge';
-import Spinner from '../Spinner';
+import Button from '../../components/Button';
+import Badge from '../../components/Badge';
+import Spinner from '../../components/Spinner';
 import styles from './Admin.module.scss';
 
 const AdminAdoptionsPage: React.FC = () => {
@@ -78,8 +78,8 @@ const AdminAdoptionsPage: React.FC = () => {
                   <tr key={app._id}>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                         <strong>{pet?.name || 'Deleted Pet'}</strong>
-                         <span style={{ fontSize: '0.75rem', color: '#64748b' }}>({pet?.species})</span>
+                        <strong>{pet?.name || 'Deleted Pet'}</strong>
+                        <span style={{ fontSize: '0.75rem', color: '#64748b' }}>({pet?.species})</span>
                       </div>
                     </td>
                     <td>
@@ -89,26 +89,26 @@ const AdminAdoptionsPage: React.FC = () => {
                       </div>
                     </td>
                     <td>
-                       <Badge variant={app.status === 'approved' ? 'success' : app.status === 'rejected' ? 'error' : 'warning'}>
-                         {app.status}
-                       </Badge>
+                      <Badge variant={app.status === 'approved' ? 'success' : app.status === 'rejected' ? 'error' : 'warning'}>
+                        {app.status}
+                      </Badge>
                     </td>
                     <td>{new Date(app.createdAt).toLocaleDateString()}</td>
                     <td>
                       <div className={styles.actions}>
                         {app.status === 'pending' && (
                           <>
-                            <Button 
-                              variant="primary" 
-                              size="sm" 
+                            <Button
+                              variant="primary"
+                              size="sm"
                               onClick={() => handleStatusUpdate(app._id, 'approved')}
                               disabled={statusMutation.isPending}
                             >
                               Approve
                             </Button>
-                            <Button 
-                              variant="danger" 
-                              size="sm" 
+                            <Button
+                              variant="danger"
+                              size="sm"
                               onClick={() => handleStatusUpdate(app._id, 'rejected')}
                               disabled={statusMutation.isPending}
                             >

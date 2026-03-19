@@ -1,11 +1,13 @@
 @import 'variables';
 
-@mixin flex($justify: center, $align: center, $direction: row) {
+@mixin flex($justify: center, $align: center, $direction: row, $gap: 0) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
+  gap: $gap;
 }
+
 
 @mixin mobile {
   @media (max-width: #{$breakpoint-md}) {
@@ -29,7 +31,7 @@
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  
+
   @include tablet {
     width: 95%;
   }
@@ -42,7 +44,7 @@
   box-shadow: $shadow-sm;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
-  
+
   &:hover {
     box-shadow: $shadow-md;
     transform: translateY(-2px);
