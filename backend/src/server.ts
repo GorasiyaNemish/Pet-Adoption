@@ -20,7 +20,7 @@ if (env.NODE_ENV === 'development') {
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://pet-adoption-liart.vercel.app/'
+    'https://pet-adoption-liart.vercel.app'
   ],
   credentials: true
 }));
