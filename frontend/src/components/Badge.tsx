@@ -7,15 +7,17 @@ interface BadgeProps {
   children: React.ReactNode;
   variant?: BadgeVariant;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const Badge: React.FC<BadgeProps> = ({ 
   children, 
   variant = 'neutral', 
-  className = '' 
+  className = '',
+  style
 }) => {
   return (
-    <span className={`${styles.badge} ${styles[variant]} ${className}`}>
+    <span className={`${styles.badge} ${styles[variant]} ${className}`} style={style}>
       {children}
     </span>
   );

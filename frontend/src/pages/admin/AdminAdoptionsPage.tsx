@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import { fetchAllAdoptions, updateAdoptionStatus } from '../../api/adoptionApi';
-import type { AdoptionApplication, Pet, User } from '../../types';
+import type { Pet, User } from '../../types';
 import Button from '../../components/Button';
 import Badge from '../../components/Badge';
 import Spinner from '../../components/Spinner';
@@ -12,7 +12,7 @@ const AdminAdoptionsPage: React.FC = () => {
   const queryClient = useQueryClient();
 
   // 1. Fetch All Adoptions
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['admin-adoptions'],
     queryFn: fetchAllAdoptions
   });
