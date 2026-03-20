@@ -16,7 +16,15 @@ const app = express();
 if (env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://pet-adoption-b4gn3b78a-gorasiya-nemishs-projects.vercel.app'
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
